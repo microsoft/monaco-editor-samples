@@ -15,7 +15,7 @@ import 'monaco-editor/esm/vs/editor/browser/controller/coreCommands.js';
 // import 'monaco-editor/esm/vs/editor/contrib/cursorUndo/cursorUndo.js';
 // import 'monaco-editor/esm/vs/editor/contrib/dnd/dnd.js';
 import 'monaco-editor/esm/vs/editor/contrib/find/findController.js';
-// import 'monaco-editor/esm/vs/editor/contrib/folding/folding.js';
+import 'monaco-editor/esm/vs/editor/contrib/folding/folding.js';
 // import 'monaco-editor/esm/vs/editor/contrib/format/formatActions.js';
 // import 'monaco-editor/esm/vs/editor/contrib/goToDeclaration/goToDeclarationCommands.js';
 // import 'monaco-editor/esm/vs/editor/contrib/goToDeclaration/goToDeclarationMouse.js';
@@ -123,5 +123,6 @@ monaco.editor.create(document.getElementById('container'), {
 		'		eat(9.25)',
 		'		return "Yum yum"',
 	].join('\n'),
-	language: 'python'
+	language: 'python',
+	folding: true
 });
