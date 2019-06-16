@@ -1,61 +1,341 @@
 <!DOCTYPE html>
 <html>
+
 <head>
 	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<!-- 最新版本的 Bootstrap 核心 CSS 文件 -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+		integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+	</script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+	</script>
 </head>
+
 <body>
+	<header>
+		<div class="bg-dark collapse" id="navbarHeader" style="">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-8 col-md-7 py-4">
+						<h4 class="text-white">About</h4>
+						<p class="text-muted">Add some information about the album below, the author, or any other
+							background context. Make it a few sentences long so folks can pick up some informative
+							tidbits. Then, link them off to some social networking sites or contact information.</p>
+					</div>
+					<div class="col-sm-4 offset-md-1 py-4">
+						<h4 class="text-white">Contact</h4>
+						<ul class="list-unstyled">
+							<li><a href="#" class="text-white">Follow on Twitter</a></li>
+							<li><a href="#" class="text-white">Like on Facebook</a></li>
+							<li><a href="#" class="text-white">Email me</a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="navbar navbar-dark bg-dark shadow-sm">
+			<div class="container d-flex justify-content-between">
+				<a href="#" class="navbar-brand d-flex align-items-center">
+					<!-- <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="mr-2" viewBox="0 0 24 24" focusable="false"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path><circle cx="12" cy="13" r="4"></circle></svg> -->
+					<img src="logo.png" height=50px />
+					<strong>Smart Commit</strong>
+				</a>
+				<button class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+					data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false"
+					aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+			</div>
+		</div>
+	</header>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-4">
+				<div id="chart"></div>
+			</div>
+			<div class="col-8">
+				<div id="monaco" style="height:600px;border:1px solid grey"></div>
+			</div>
+		</div>
 
-<h2>Monaco Diff Editor Sample</h2>
-<div id="container" style="width:800px;height:600px;border:1px solid grey"></div>
+		<div class="row">
+			<div class="col-2">
+					<label for="firstName">Commit Message</label>
+			</div>
+			<div class="col-6">
+				<p>
+					<input type="text" class="form-control" id="firstName" placeholder="" value="" required=""
+						style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAABHklEQVQ4EaVTO26DQBD1ohQWaS2lg9JybZ+AK7hNwx2oIoVf4UPQ0Lj1FdKktevIpel8AKNUkDcWMxpgSaIEaTVv3sx7uztiTdu2s/98DywOw3Dued4Who/M2aIx5lZV1aEsy0+qiwHELyi+Ytl0PQ69SxAxkWIA4RMRTdNsKE59juMcuZd6xIAFeZ6fGCdJ8kY4y7KAuTRNGd7jyEBXsdOPE3a0QGPsniOnnYMO67LgSQN9T41F2QGrQRRFCwyzoIF2qyBuKKbcOgPXdVeY9rMWgNsjf9ccYesJhk3f5dYT1HX9gR0LLQR30TnjkUEcx2uIuS4RnI+aj6sJR0AM8AaumPaM/rRehyWhXqbFAA9kh3/8/NvHxAYGAsZ/il8IalkCLBfNVAAAAABJRU5ErkJggg==&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: auto;">
+				</p>
+			</div>
+			<div class="col-4">
+				<p>
+					<a href="#" class="btn btn-primary commit_btn">Commit</a>
+					<a href="#" class="btn btn-secondary my-2">Clear</a>
+				</p>
+			</div>
 
-<script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
-<script>
-	require.config({ paths: { 'vs': '../node_modules/monaco-editor/min/vs' }});
+		</div>
+	</div>
 
-	require(['vs/editor/editor.main'], function() {
-		var diffEditor = monaco.editor.createDiffEditor(document.getElementById('container'));
 
-		monaco.Promise.join([xhr('original.txt'), xhr('modified.txt')]).then(function(r) {
-			var originalTxt = r[0].responseText;
-			var modifiedTxt = r[1].responseText;
+	<script src="https://d3js.org/d3.v3.min.js"></script>
+	<script type="text/javascript">
+		var w = 500,
+			h = 500,
+			count = 10,
+			fill = d3.scale.category10();
+		nodes = d3.range(count).map(Object);
 
-			diffEditor.setModel({
-				original: monaco.editor.createModel(originalTxt, 'javascript'),
-				modified: monaco.editor.createModel(modifiedTxt, 'javascript'),
-			})
-		});
-	});
-</script>
-<script>
-	function xhr(url) {
-		var req = null;
-		return new monaco.Promise(function(c,e,p) {
-			req = new XMLHttpRequest();
-			req.onreadystatechange = function () {
-				if (req._canceled) { return; }
+		var groupPath = function (d) {
+			return "M" +
+				d3.geom.hull(d.map(function (e) {
+					return [e.x, e.y];
+				}))
+				.join("L") +
+				"Z";
+		};
 
-				if (req.readyState === 4) {
-					if ((req.status >= 200 && req.status < 300) || req.status === 1223) {
-						c(req);
-					} else {
-						e(req);
-					}
-					req.onreadystatechange = function () { };
-				} else {
-					p(req);
+		var groups = [];
+		groups.init = function () {
+			groups.a = Math.min(w, h);
+			groups.r = groups.a * 0.20;
+			for (i = 0; i < 4; i++) {
+				var g = [];
+				g.groupId = i;
+				g.x = w / 2;
+				g.y = h / 2;
+				var k = 0.25 * groups.a;
+				g.x += i & 2 ? k : -k;
+				g.y += i & 1 ? k : -k;
+
+				for (j = 0; j < 5; j++) {
+					var alpha = (2 * Math.PI * j / 5);
+					50
+					var dummy = {
+						x: g.x + 10 * Math.sin(alpha),
+						y: g.y + 10 * Math.cos(alpha)
+					};
+					g.push(dummy);
 				}
+				groups[i] = g;
 			};
+		}
 
-			req.open("GET", url, true );
-			req.responseType = "";
 
-			req.send(null);
-		}, function () {
-			req._canceled = true;
-			req.abort();
+		groups.snap = function (d) {
+
+			function change(d, to) {
+				if (d.groupId != null) {
+					var oldGroup = groups[d.groupId];
+					var index = oldGroup.indexOf(d);
+					if (index >= 0) {
+						oldGroup.splice(index, 1);
+					}
+				}
+
+				if (to == null) {
+					d.groupId = null;
+				} else {
+					d.groupId = to.groupId;
+					to.push(d);
+				}
+			}
+
+			groups.forEach(function (g) {
+				var distance = Math.sqrt(Math.pow(d.x - g.x, 2) + Math.pow(d.y - g.y, 2));
+				if (distance < groups.r) {
+					if (d.groupId != g.groupId) {
+						change(d, g);
+					}
+				} else {
+					if (d.groupId == g.groupId) {
+						change(d, null)
+					}
+				}
+			});
+		}
+
+		groups.delta = function (d) {
+
+			function massCenter(g) {
+				var x = 0,
+					y = 0;
+				g.forEach(function (e) {
+					x += e.x;
+					y += e.y;
+				});
+				return {
+					x: x / g.length,
+					y: y / g.length
+				};
+			}
+
+			if (d.groupId == null) return 0;
+			var g = groups[d.groupId];
+			var massCenter = massCenter(g);
+			var delta = {
+				x: g.x - massCenter.x,
+				y: g.y - massCenter.y
+			}
+			return delta;
+		}
+
+		groups.init();
+
+
+		var nodeFill = function (n) {
+			return n.groupId != null ? fill(n.groupId) : "lightgray";
+		};
+
+		var svg = d3.select("#chart").append("svg")
+			.attr("width", w)
+			.attr("height", h);
+
+
+		var force = d3.layout.force()
+			.nodes(nodes)
+			.links([])
+			.size([w, h])
+			.start();
+
+		var node = svg.selectAll("g.node")
+			.data(nodes)
+			.enter()
+			.append("g")
+			.attr("class", "node")
+			// .attr("transform", function(d) {
+			//             return "translate(" + d.x + "," + d.y + ")";
+			// })
+			// .style("stroke-width", 0.5)
+			.on("mousemove", groups.snap)
+			.call(force.drag);
+
+		node.append("rect")
+			.attr("width", 80)
+			.attr("height", 20)
+			.attr("rx", 4)
+			// .attr("transform", function(d) {
+			//             return "translate(" + d.x + "," + d.y + ")";
+			// })
+			.style("fill", nodeFill)
+			.style("stroke", function (d, i) {
+				return d3.rgb(nodeFill).darker(2);
+			});
+
+
+		node.append("text")
+			.attr("dx", 10).attr("dy", 8)
+			.style("font-size", "10px")
+			.attr("text-anchor", "middle").style("fill", "black")
+
+			.text(function (d) {
+				return "VB";
+			});
+
+		svg.style("opacity", 1e-6)
+			.transition()
+			.duration(1000)
+			.style("opacity", 1);
+
+
+
+		var group = svg.selectAll("path")
+			.data(groups)
+			.attr("d", groupPath)
+			.enter().insert("path", "g")
+			.style("fill", nodeFill)
+			.style("stroke", nodeFill)
+			.style("stroke-width", 100)
+			.style("stroke-linejoin", "round")
+			.style("opacity", .2)
+
+		force.on("tick", function (e) {
+
+			nodes.forEach(function (o) {
+				if (o.groupId == null) return;
+				o.x += groups.delta(o).x * .3;
+				o.y += groups.delta(o).y * .3;
+			});
+
+			// node.attr("x", function (d) { return d.x; })
+			// .attr("y", function (d) { return d.y; })
+			//     .style("fill", nodeFill);
+			node.attr("transform", function (d) {
+				return "translate(" + d.x + "," + d.y + ")";
+			});
+
+			group.attr("d", groupPath);
 		});
-	}
-</script>
+	</script>
+
+	<script src="../node_modules/monaco-editor/min/vs/loader.js"></script>
+	<script>
+		require.config({
+			paths: {
+				'vs': '../node_modules/monaco-editor/min/vs'
+			}
+		});
+
+		require(['vs/editor/editor.main'], function () {
+			var diffEditor = monaco.editor.createDiffEditor(document.getElementById('monaco'), {
+				// theme: "vs-dark",
+				scrollBeyondLastLine: false
+			});
+
+			monaco.Promise.join([xhr('original.txt'), xhr('modified.txt')]).then(function (r) {
+				var originalTxt = r[0].responseText;
+				var modifiedTxt = r[1].responseText;
+
+				diffEditor.setModel({
+					original: monaco.editor.createModel(originalTxt, 'javascript'),
+					modified: monaco.editor.createModel(modifiedTxt, 'javascript'),
+				})
+			});
+		});
+	</script>
+	<script>
+		function xhr(url) {
+			var req = null;
+			return new monaco.Promise(function (c, e, p) {
+				req = new XMLHttpRequest();
+				req.onreadystatechange = function () {
+					if (req._canceled) {
+						return;
+					}
+
+					if (req.readyState === 4) {
+						if ((req.status >= 200 && req.status < 300) || req.status === 1223) {
+							c(req);
+						} else {
+							e(req);
+						}
+						req.onreadystatechange = function () {};
+					} else {
+						p(req);
+					}
+				};
+
+				req.open("GET", url, true);
+				req.responseType = "";
+
+				req.send(null);
+			}, function () {
+				req._canceled = true;
+				req.abort();
+			});
+		}
+	</script>
+
 </body>
+
 </html>
