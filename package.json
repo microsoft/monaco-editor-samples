@@ -9,7 +9,9 @@
   "author": "Microsoft Corporation",
   "license": "MIT",
   "dependencies": {
+    "d3": "^3.5.17",
     "http-server": "^0.11.1",
-    "monaco-editor": "0.14.3"
+    "monaco-editor": "0.14.3",
+    "simple-git": "^1.115.0"
   }
 }
