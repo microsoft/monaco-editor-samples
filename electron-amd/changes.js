@@ -26,19 +26,33 @@ function formatStatus(status) {
 	};
 	let nodes = new Array();
 	for (let path of status.not_added) {
+		let name = getFileName(path);
 		nodes.push({
-			"type": "A",
+			"operation": "A",
+			"type": "file",
+			"name": name,
 			"path": path
 		});
 	}
 	for (let path of status.modified) {
+		let name = getFileName(path);
 		nodes.push({
-			"type": "M",
+			"operation": "M",
+			"type": "file",
+			"name": name,
 			"path": path
 		});
 	}
 	data.nodes = nodes;
 	return data;
+}
+
+/**
+ * Get the file name from absolute path
+ * @param {} path
+ */
+function getFileName(path){
+	return path.replace(/^.*[\\\/]/, '');
 }
 
 /**
@@ -50,7 +64,7 @@ function draw(data) {
 		h = 500,
 		count = 10,
 		fill = d3.scale.category10(),
-		rec_w = 80,
+		rec_w = 100,
 		rec_h = 20;
 	// nodes = d3.range(count).map(Object);
 	nodes = data.nodes;
@@ -193,12 +207,12 @@ function draw(data) {
 
 
 	node.append("text")
-		.attr("dx", rec_h * 0.5).attr("dy", rec_h * 0.7)
-		.style("font-size", "10px")
+		.attr("dx", rec_w*0.5).attr("dy", rec_h * 0.7)
+		.style("font-size", "20px")
 		.attr("text-anchor", "middle").style("fill", "black")
 
 		.text(function (d) {
-			return d.path;
+			return d.name;
 		});
 
 	svg.style("opacity", 1e-6)
