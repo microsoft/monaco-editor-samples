@@ -4,6 +4,7 @@
   "description": "Samples for using the Monaco Editor",
   "main": "index.js",
   "scripts": {
+    "start": "cd electron-amd && electron main.js",
     "simpleserver": "node_modules/.bin/http-server -c-1 ./ -p 8888"
   },
   "author": "Microsoft Corporation",
