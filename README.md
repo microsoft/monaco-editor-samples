@@ -1,4 +1,4 @@
-
+[![Run on Repl.it](https://repl.it/badge/github/microsoft/monaco-editor-samples)](https://repl.it/github/microsoft/monaco-editor-samples)
 # Monaco Editor Samples
 
 Standalone HTML samples showing how to integrate the Monaco Editor.
